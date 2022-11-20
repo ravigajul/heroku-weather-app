@@ -22,6 +22,13 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
+app.get('', (req, res) => {
+    res.render('index', {
+        title: "Weather",
+        name: "Created by Ravi Gajul"
+    })
+})
+
 app.get('/Home', (req, res) => {
     res.render('index', {
         title: "Weather",

@@ -22,7 +22,7 @@ app.set('view engine', 'hbs')
 app.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
 
-app.get('', (req, res) => {
+app.get('/Home', (req, res) => {
     res.render('index', {
         title: "Weather",
         name: "Created by Ravi Gajul"
@@ -42,6 +42,7 @@ app.get('/help', (req, res) => {
         name: "Created by Ravi Gajul"
     })
 })
+
 
 app.get('/weather', (req, res) => {
     if (!req.query.search) {

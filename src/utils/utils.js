@@ -34,12 +34,15 @@ const getWeather = (center, callback) => {
     const longitude = center.center[0]
     const url = 'http://api.weatherstack.com/current?access_key=e84a396be35e4b7babdec9031b34365e&query=' + latitude + ',' + longitude
     //implicit json parsing
-    debugger
+ 
     //error - when error, response actual response, body is html body
     request({ url: url, json: true }, function (error, response) {
+        debugger
         if (error) {
             callback('500 internal server error unable to connect to service ', undefined)
-        } else if (response.body.error) {
+        } else if (response.body.error.code === 104){
+            callback(response.body.error.info,undefined)
+        }else if (response.body.error) {
             callback('400 - Bad Request', undefined)
         } else {
             debugger

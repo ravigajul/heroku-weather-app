@@ -63,6 +63,7 @@ app.get('/weather', (req, res) => {
             res.send({error})
         } else {
             utils.getWeather(center, (error, resp) => {
+                debugger
                 if (error) {
                     res.send({error})
                 } else {

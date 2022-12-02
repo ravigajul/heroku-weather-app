@@ -40,11 +40,11 @@ const getWeather = (center, callback) => {
         debugger
         if (error) {
             callback('500 internal server error unable to connect to service ', undefined)
-        } else if (response.body.error.code === 104){
+        } /* else if (response.body.error.code === 104){
             callback(response.body.error.info,undefined)
         }else if (response.body.error) {
             callback('400 - Bad Request', undefined)
-        } else {
+        }  */else {
             debugger
             callback(undefined, response)
         }
